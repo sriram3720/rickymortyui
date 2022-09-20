@@ -1,0 +1,19 @@
+.Landingpage-f{
+    padding: 51px;
+    background-color: #212329;
+    display: grid;
+    height: 700px;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 12px;
+    column-gap: 12px;
+}
+
+.grid {
+    background-color: #3a3e42;
+    border-radius: 10px;
+}
+
+.grid-item1 {
+
+} 
