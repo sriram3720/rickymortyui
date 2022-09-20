@@ -1,19 +1,30 @@
-.Landingpage-f{
-    padding: 51px;
-    background-color: #212329;
-    display: grid;
-    height: 700px;
-    grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
-    grid-template-rows: repeat(3,1fr);
-    row-gap: 12px;
-    column-gap: 12px;
+.Landingpage-f {
+  padding: 51px;
+  background-color: #212329;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: repeat(3, 1.5fr);
+  row-gap: 12px;
+  column-gap: 12px;
 }
 
 .grid {
-    background-color: #3a3e42;
-    border-radius: 10px;
+  height: 77%;
+  background-color: #3a3e42;
+  border-radius: 10px;
 }
 
 .grid-item1 {
+}
+.card-container {
+  display: flex;
+  width: 50%;
+}
 
-} 
+img {
+    object-fit: fill;
+    height: 77%;
+    margin-left: -31px;
+    border-radius: 10px 0px 0px 10px;
+}
