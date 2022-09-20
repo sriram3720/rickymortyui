@@ -40,7 +40,39 @@ class Landingpage extends Component  {
                                     </div>
 
                                     <div className='card-Data'>
-                                        <hi>{item.name}</hi>
+                                        <div className="card-name">
+                                            {item.name}
+                                        </div>
+                                        <div className="card-deatail-staus">
+                                            <div 
+                                            style={{ backgroundColor: item.status === "Alive" ? 'green': item.status ==="Dead" ? 'red' : 'grey'}}
+                                            className="card-detail-statusIndicator">
+
+                                            </div>
+                                            <div>
+                                            {item.status}-{item.species}
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        </br>
+                                        
+
+                                        <div>
+                                           <div className="cardDetail-title"> Last known location:</div>
+                                           <div> {item.location.name}</div>
+                                        </div>
+                                        <br>
+                                        </br>
+                                        <div>
+                                            <div className="cardDetail-title">First seen in:</div>
+                                            <div>{item.origin.name}</div>
+                                             
+
+                                        
+                                            
+                                        </div>
+
 
                                     </div>
                                 </div>
