@@ -82,18 +82,7 @@ class Landingpage extends Component  {
                 </div>
             )
         }
-        // return(
-        //     <div>
-        //         <div className='Landingpage-f'>
-        //             <div className="grid grid-item1"></div>
-        //             <div className="grid grid-item1"></div>
-        //             <div className="grid grid-item1"></div>
-        //             <div className="grid grid-item1"></div>
-        //             <div className="grid grid-item1"></div>
-        //             <div className="grid grid-item1"></div>
-        //         </div>
-        //     </div>
-        // )
+
     }
     
 }
