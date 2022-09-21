@@ -18,7 +18,7 @@ function Landingpage() {
     }
     useEffect(()=>{
        rickyApi()
-    })
+    },[])
 
   return (
     !loaded ? (<div>loading...</div>) : 
