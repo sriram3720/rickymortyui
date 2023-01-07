@@ -1,20 +1,16 @@
 .Landingpage-f {
   padding: 51px;
-  background-color: #212329;
+ 
   display: grid;
-  height: 749 !important;
-
-  width: 1472px !important;
-  grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
   grid-template-rows: repeat(3, 1.5fr);
-  row-gap: 12px;
-  column-gap: 12px;
+  row-gap: 51px;
+  column-gap: 83px;
 }
 
 .grid {
-    height:292px  !important;
-
-   width:483px !important;
+height:160px  !important;
+width:160px !important;
   background-color: #3a3e42;
   border-radius: 10px;
   
@@ -34,9 +30,9 @@
 
 img {
     object-fit: fill;
-    height:292px  !important;
+    height:160px  !important;
 
-    width:483px !important;
+    width:160px !important;
     
     border-radius: 10px 10px 10px 10px;
 }
@@ -54,9 +50,11 @@ p{
 .card-image{
     /* width:100% !important;
     height:100% !important; */
-    height:292px  !important;
+    height:160px  !important;
 
-    width:483px !important;
+    width:160px !important;
+    position: relative;
+    
 }
 
 .cardDetail-title {
