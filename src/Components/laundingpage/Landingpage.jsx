@@ -1,76 +1,117 @@
+import React, { useEffect, useState } from "react";
+import "./landingpg.css";
+import { Input, Button } from "antd";
+import { HeartOutlined, HeartFilled, HeartTwoTone } from "@ant-design/icons";
 
-import React, { useEffect, useState } from 'react'
-import './landingpg.css';
 
 function Landingpage() {
+  const { Search } = Input;
+  const [searchKey, setSearchKey] = useState("boxer");
+  const [iconColor, setIconColor] = useState("");
+  const [favorite, setFavorite] = useState([]);
+  const onSearch = (value: string) => {
+    setSearchKey(value.toLowerCase());
+    rickyApi()
+  };
 
-    const [loaded, setLoaded] = useState(false);
-    const [items,setItems] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
-    const rickyApi = () => {
-        fetch('https://rickandmortyapi.com/api/character').then(res=>res.json()
-        .then(res =>{
-            console.log(res);
+  const rickyApi = () => {
+    fetch(` https://dog.ceo/api/breed/${searchKey}/images/random/18`).then(
+      (res) =>
+        res.json().then((res) => {
+          if (res.message && res.message.length) {
+            setItems(res.message);
             setLoaded(true);
-            setItems(res.results);
-            
-        }))
-    }
-    useEffect(()=>{
-       rickyApi()
-    },[])
+          }
+        })
+    );
+  };
+  useEffect(() => {
+    rickyApi();
+  }, []);
 
-  return (
-    !loaded ? (<div>loading...</div>) : 
+  return !loaded ? (
+    <div>loading...</div>
+  ) : (
     <div>
+      <h2>Breed</h2>
+      <div>
+        <Search
+          style={{ width: "380px", paddingTop: "20px" }}
+          placeholder="input search text"
+          allowClear
+          enterButton="Search"
+          size="large"
+          onSearch={onSearch}
+        />
+      </div>
+
+      <div className="Landingpage-f">
+        {items?.map((item) => (
+          <div className="grid">
+            <div className="">
+              <div className="card-image">
+                <img className="img " src={item} alt="" />
+                <Button
+                  style={{
+                    position: "absolute",
+                    left: "125px",
+                    bottom: "1px",
+                    height: "30px",
+                    width: "31px",
+                  }}
+                  icon={<HeartOutlined style={{ color: iconColor }} />}
+                  onClick={() => {
+                    setIconColor("red");
+                    setFavorite([...favorite, item]);
+                   
+                  }}
+                >
+                 
+                </Button>
+              </div>
+
+             
+            </div>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h2>Favorite</h2>
         <div className="Landingpage-f">
-            {items.map(item =>(
-                // <li key={item.id}>
-                //     Name:{item.name}|Email:{item.email}
-                // </li>
-                <div className='grid'>
-                    <div className='card-container'>
-                        <div className='card-image'>
-                              <img src={item.image} alt=""/>
-                        </div>
-
-                        <div className='card-Data'>
-                            <div className="card-name">
-                                {item.name}
-                            </div>
-                            <div className="card-deatail-staus">
-                                <div 
-                                style={{ backgroundColor: item.status === "Alive" ? 'green': item.status ==="Dead" ? 'red' : 'grey'}}
-                                className="card-detail-statusIndicator">
-
-                                </div>
-                                <div>
-                                {item.status}-{item.species}
-                                </div>
-
-                            </div>
-                            <br>
-                            </br>
-                            
-
-                            <div>
-                               <div className="cardDetail-title"> Last known location:</div>
-                               <div> {item.location.name}</div>
-                            </div>
-                            <br>
-                            </br>
-                            <div>
-                                <div className="cardDetail-title">First seen in:</div>
-                                <div>{item.origin.name}</div>
-                            </div>
-                        </div>
-                    </div>
+          {favorite?.map((item) => (
+            <div className="grid">
+              <div className="">
+                <div className="card-image">
+                  <img className="img " src={item} alt="" />
+                  <Button
+                    style={{
+                      position: "absolute",
+                      left: "125px",
+                      bottom: "1px",
+                      height: "30px",
+                      width: "31px",
+                    }}
+                    icon={<HeartOutlined style={{ color: iconColor }} />}
+                    onClick={() => {
+                      setIconColor("red");
+                      setFavorite([...favorite, item]);
+                      
+                    }}
+                  >
+                   
+                  </Button>
                 </div>
-                ))
-             }
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
 export default Landingpage;
